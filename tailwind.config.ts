@@ -10,6 +10,10 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+			'custom-red': '#740938',
+			'custom-red1': '#AF1740',
+			'custom-red2': '#CC2B52',
+			'custom-red3': '#DE7C7D',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -55,7 +59,11 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		fontFamily: {
+			sans: ['Roboto', 'sans-serif'],
+			customFont: ['sans-serif', 'sans-serif']
+		}
   	}
   },
   plugins: [

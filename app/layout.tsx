@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Landing Page",
+  title: "Red Diamonds Lab",
   description: "Make Project and Keep Learning",
 };
 
