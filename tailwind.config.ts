@@ -10,10 +10,14 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
-			'custom-red': '#740938',
-			'custom-red1': '#AF1740',
-			'custom-red2': '#CC2B52',
-			'custom-red3': '#DE7C7D',
+			'red1': '#740938',
+			'red2': '#AF1740',
+			'red3': '#CC2B52',
+			'red4': '#DE7C7D',
+			'dark-blue': '#002341',
+			'scarlet': '#e50027',
+			'beige': '#bd9d78',
+			'blue-gray': '#5e8bb0',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

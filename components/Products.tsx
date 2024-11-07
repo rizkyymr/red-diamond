@@ -1,59 +1,76 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const products = [
     {
-        title: "Product1",
-        image: "/product1.jpg",
-        link: "#"
+        title: "Complete Development Kit Robot IoT",
+        image: "/product1.png",
+        link: "/product1",
     },
     {
-        title: "Product2",
+        title: "STM32U5 Development Board Microcontroller",
         image: "/product2.jpg",
-        link: "#"
-    }
+        link: "/product2",
+    },
+    {
+        title: "LoRa BlackPill Development Board",
+        image: "/product3.jpg",
+        link: "/product3",
+    },
 ];
 
 export default function Products() {
     return (
         <main id='products'>
-            <div className='containe bg-custom-red1 w-full h-screen'>
+            <div className='bg-white w-full h-screen'>
                 <div className='text-center'>
-                    <div className="inline-block text-center">
-                        <h1 className="text-4xl font-bold text-white uppercase tracking-wider mt-10 font-customFont">
+                    <div className="inline-block">
+                        <h1 className="text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
                             Products
                         </h1>
-                        <div className="h-1 bg-white mt-4"></div>
+                        <div className="h-1 bg-black mt-4"></div>
                     </div>
-                    <p className="text-white/80 max-w-2xl mx-auto mt-6 px-4 font-serif">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptates, 
-                        quod, voluptatum, voluptas quae voluptatem quibusdam voluptate quas quidem 
-                        natus quia. Quisquam, quae. Quisquam voluptates.
+                    <p className="text-black/80 max-w-2xl mx-auto mt-6 px-4 font-serif">
+                        Here are some of the products we offer you.
                     </p>
                 </div>
                 <section className="container mx-auto px-4 py-16">
-                    <div className="grid grid-cols-2 gap-8">
-                        {products.map((product, index) => (
-                            <div
-                                key={index}
-                                className="relative group cursor-pointer overflow-hidden rounded-2xl"
-                            >
-                                <div className="relative h-[400px] w-full">
-                                    <Image
-                                        src={product.image}
-                                        alt={product.title}
-                                        fill
-                                        className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
-                                    />
-                                    <div className="absolute inset-0 bg-gray-500/50 group-hover:bg-custom-red3/25 transition-colors duration-300 rounded-2xl" />
-
-                                    <div className="absolute inset-0 flex items-end justify-center mb-5">
-                                        <h3 className="text-white text-3xl font-bold tracking-wider">
+                    <div className="flex justify-between items-start">
+                        <div className="flex overflow-x-auto gap-8">
+                            {products.map((product, index) => (
+                                <div
+                                    key={index}
+                                    className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black"
+                                >
+                                    <div className="relative h-[300px] w-full">
+                                        <Image
+                                            src={product.image}
+                                            alt={product.title}
+                                            fill
+                                            className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col items-center mt-4">
+                                        <h3 className="text-black text-2xl font-bold tracking-wider">
                                             {product.title}
                                         </h3>
+                                        <div className="mt-10 flex-grow"></div>
+                                        <div className="absolute bottom-4 right-4">
+                                            <Link href={product.link} className="text-black hover:underline">
+                                                Read More <span>&#8594;</span>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
+                            ))}
+                        </div>
+                        <div className='mt-4 flex items-center'>
+                            <div className="flex items-center justify-center bg-blue-500 text-white rounded-full px-4 py-2">
+                                <Link href="/viewall" className="text-center">
+                                    View All
+                                </Link>
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </section>
             </div>

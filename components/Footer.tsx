@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer id="footer" className="w-full bg-custom-red1">
+    <footer id="footer" className="w-full bg-dark-blue">
         <div className="container mx-auto px-4 py-20">
 
           <div className="flex gap-20">
@@ -15,8 +15,8 @@ export default function Footer() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Address</h3>
                   <p className="text-gray-300">
-                    Jl. White Diamond V Jelupang, Kec.Serpong Utara<br />
-                    Tanggerang Selatan, Banten<br />
+                    Jl. White Diamond V Jelupang, Serpong Utara<br />
+                    West Tanggerang, Banten<br />
                     Indonesia
                   </p>
                 </div>
@@ -26,12 +26,12 @@ export default function Footer() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Email</h3>
-                  <p className="text-gray-300">example@gmail.com</p>
+                  <p className="text-gray-300">panna.bali@potensio.net</p>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Marketplace</h3>
                   <a 
-                    href="https://www.tokopedia.com/reddiamondlab" 
+                    href="https://www.tokopedia.com/rdlabs" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-gray-300 hover:text-white transition-colors"
@@ -73,9 +73,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="w-full bg-custom-red3">
+        <div className="w-full bg-white">
           <div className="container mx-auto px-4 py-2">
-            <div className="flex justify-between items-center text-sm text-white">
+            <div className="flex justify-between items-center text-sm text-black">
               <div className="flex gap-4">
                 <a href="#" className="hover:text-gray-900 transition-colors">Sitemap</a>
                 <span>|</span>
