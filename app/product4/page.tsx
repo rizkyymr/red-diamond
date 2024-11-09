@@ -6,16 +6,21 @@ import Link from 'next/link';
 
 const ProductsPage = () => {
   const handleBuy = () => {
-    window.location.href = 'https://www.tokopedia.com/rdlabs/complete-development-kit-robot-iot-device-rp2040-oled-buzzer-board-buzzer-d086a?extParam=src%3Dshop%26whid%3D410203';
+    window.location.href = 'https://www.tokopedia.com/rdlabs/lora-blackpill-development-board-only-board-3dff5?extParam=src%3Dshop%26whid%3D410203';
   };
 
   const handleViewAll = () => {
-    window.location.href = '/viewall'
+    window.location.href = '/viewall';
   };
 
   const products = [
     {
       title: "Complete Development Kit Robot IoT",
+      image: "/product1.png",
+      link: "/product1",
+    },
+    {
+      title: "LoRa BlackPill Development Board",
       image: "/product2.jpg",
       link: "/product2",
     },
@@ -23,11 +28,6 @@ const ProductsPage = () => {
       title: "LoRa BlackPill Development Board",
       image: "/product3.jpg",
       link: "/product3",
-    },
-    {
-      title: "LoRa BlackPill Development Board",
-      image: "/product4.png",
-      link: "/product4",
     },
   ]
 
@@ -40,29 +40,34 @@ const ProductsPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
     <div className={`flex flex-col min-h-screen w-full mt-28 justify-center ${isVisible ? 'fade-in' : 'opacity-0'}`}>
       <div className="flex border p-4 bg-white w-full justify-center">
-        <img src="/product1.png" alt="Deskripsi Gambar" className="w-1/4 h-auto object-cover rounded-lg" />
+        <img src="/product4.png" alt="Deskripsi Gambar" className="w-1/4 h-auto object-cover rounded-lg" />
         <div className="flex flex-col justify-between p-4 w-1/2">
           <div>
-            <h2 className="text-4xl font-bold text-black text-center">Complete Development Kit Robot IoT</h2>
-            <p className="text-md text-black text-center">
-              Complete Development Kit Robot IoT Device RP2040 OLED Buzzer.
-            </p>
-            <h3 className="font-bold mt-4 text-black text-lg">Spesifikasi:</h3>
-            <ul className="list-disc list-inside text-sm text-black mt-2">
-              <li>Power 5V USB Type-C</li>
-              <li>Switch Power</li>
-              <li>10 Grove output untuk digunakan sebagai koneksi sensor yang akan digunakan</li>
-              <li>Motor Driver menggunakan Chip MX1508</li>
-              <li>Pin IO sudah tertulis di setiap Grove</li>
-              <li>LED internal yang sudah terpasang, Buzzer dan Motor Servo</li>
-              <li>2 User buttons</li>
-              <li>WiFi Module ESP8266</li>
-              <li>Grove 8 Direkomendasikan untuk Modul Bluetooth HC05</li>
-              <li>Untuk Display Direkomendasikan menggunakan SH1106</li>
+            <h2 className="text-4xl font-bold text-black text-center">LoRa BlackPill Development Board</h2>
+            <h3 className="font-bold mt-4 text-black">Description :</h3>
+            <ul className="list-disc list-inside text-sm text-black">
+              <li>Product Type <span>&#8594;</span> Module</li>
+              <li>Part.No <span>&#8594;</span> LBAA0QB1SJ</li>
+              <li>LoRaWAN™ Channel Band <span>&#8594;</span> 860-930MHz</li>
+              <li>Chipset <span>&#8594;</span> Semtech (SX1262) + STM (STM32L)</li>
+              <li>Modulation <span>&#8594;</span> FSK and LoRa™ Modulation</li>
+              <li>Antenna <span>&#8594;</span> External</li>
+              <li>Operating Temperature Range <span>&#8594;</span> -40 to +85</li>
+              <li>Dimension <span>&#8594;</span> 10.0 mm x 8.0 mm x 1.6 mm</li>
+              <li>Interface Voltage (Vdc for VIO) <span>&#8594;</span> 3.3 Vdc</li>
+              <li>Supply Voltage min <span>&#8594;</span> 2.2V for VDD_MCU, VDD_RF, VDD_TCXO</li>
+              <li>Supply Voltage max <span>&#8594;</span> 3.6V for VDD_MCU, VDD_RF, VDD_TCXO</li>
+              <li>Transmit Mode Current <span>&#8594;</span> 118mA @ 22dBm setting</li>
+              <li>Transmit Power <span>&#8594;</span> Up to +21.5dBm</li>
+              <li>Receive Mode Current <span>&#8594;</span> 15.5mA @ 125kHz BW</li>
+              <li>Receiver Sensitivity <span>&#8594;</span> -135.5dBm @ 1% PER, 125kHz BW, SF=12</li>
+              <li>Host Interface <span>&#8594;</span> I2C/ UART/ USB/ SPI</li>
+              <li>RoHS Compliant <span>&#8594;</span> Yes</li>
+              <li>Technology <span>&#8594;</span> LPWA</li>
+              <li>FCC/IC Certified <span>&#8594;</span> FCC/IC Reference Certified</li>
             </ul>
           </div>
           <div className="flex justify-between mt-4">
@@ -83,7 +88,7 @@ const ProductsPage = () => {
       </div>
 
       <div className='mt-4 ml-4'>
-      <h2 className="text-4xl font-bold text-left uppercase">Other Products —</h2>
+        <h2 className="text-4xl font-bold text-left uppercase">Other Products —</h2>
         <div className="flex justify-between items-start mt-4 mb-10">
           <div className="flex overflow-x-auto gap-8">
             {products.map((product, index) => (

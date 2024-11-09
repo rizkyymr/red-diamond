@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 const products = [
     {
@@ -17,12 +18,36 @@ const products = [
         image: "/product3.jpg",
         link: "/product3",
     },
+    {
+        title: "Board Controller Power Supply Hydraulic",
+        image: "/product4.png",
+        link: "/product4",
+    },
 ];
 
 export default function Products() {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+            setIsVisible(entry.isIntersecting);
+        });
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, []);
+
     return (
         <main id='products'>
-            <div className='bg-white w-full h-screen'>
+            <div className='bg-white w-full h-screen '>
                 <div className='text-center'>
                     <div className="inline-block">
                         <h1 className="text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
@@ -31,11 +56,11 @@ export default function Products() {
                         <div className="h-1 bg-black mt-4"></div>
                     </div>
                     <p className="text-black/80 max-w-2xl mx-auto mt-6 px-4 font-serif">
-                        Here are some of the products we offer you.
+                        Here are some of the products we offer you —
                     </p>
                 </div>
                 <section className="container mx-auto px-4 py-16">
-                    <div className="flex justify-between items-start">
+                    <div className={`flex justify-between items-start transform transition-transform duration-5000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-40 opacity-0'}`} ref={ref}>
                         <div className="flex overflow-x-auto gap-8">
                             {products.map((product, index) => (
                                 <div

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,10 +24,24 @@ const ProductsPage = () => {
       image: "/product2.jpg",
       link: "/product2",
     },
+    {
+      title: "LoRa BlackPill Development Board",
+      image: "/product4.png",
+      link: "/product4",
+    },
   ]
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen w-full mt-28 justify-center">
+    <div className={`flex flex-col min-h-screen w-full mt-28 justify-center ${isVisible ? 'fade-in' : 'opacity-0'}`}>
       <div className="flex border p-4 bg-white w-full justify-center">
         <img src="/product3.jpg" alt="Deskripsi Gambar" className="w-1/4 h-auto object-cover rounded-lg" />
         <div className="flex flex-col justify-between p-4 w-1/2">

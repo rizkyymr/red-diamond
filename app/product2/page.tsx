@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -26,10 +26,24 @@ const ProductsPage = () => {
       image: "/product3.jpg",
       link: "/product3",
     },
+    {
+      title: "LoRa BlackPill Development Board",
+      image: "/product4.png",
+      link: "/product4",
+    },
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen w-full mt-28 justify-center">
+    <div className={`flex flex-col min-h-screen w-full mt-28 justify-center ${isVisible ? 'fade-in' : 'opacity-0'}`}>
       <div className="flex border p-4 bg-white w-full justify-center">
         <img src="/product2.jpg" alt="Deskripsi Gambar" className="w-1/4 h-[500px] object-cover rounded-lg" />
         <div className="flex flex-col justify-between p-4 w-1/2">
@@ -63,16 +77,16 @@ const ProductsPage = () => {
                     <li>4.0 µA Stop 2 mode dengan 16-Kbyte SRAM</li>
                     <li>8.95 µA Stop 2 mode dengan full SRAM</li>
                     <li>19.5 μA/MHz Run mode @ 3.3 V</li>
-                    <li>Core: Arm® 32-bit Cortex®-M33 CPU with TrustZone®, MPU, DSP, and FPU</li>
-                    <li>ART Accelerator: 8-Kbyte instruction cache allowing 0-wait-state execution from flash and external memories: up to 160 MHz, 240 DMIPS</li>
-                    <li>Power management: Embedded regulator (LDO) and SMPS step-down converter supporting switch on-the-fly and voltage scaling</li>
-                    <li>Benchmarks: 1.5 DMIPS/MHz (Drystone 2.1), 651 CoreMark® (4.07 CoreMark®/MHz), 450 ULPMark™-CP, 109 ULPMark™-PP, 51.5 ULPMark™-CM, 133000 SecureMark™-TLS</li>
-                    <li>Memories: 2-Mbyte flash memory with ECC, 2 banks read-while-write, including 512 Kbytes with 100 kcycles</li>
-                    <li>Security: Arm® TrustZone® and securable I/Os, memories, and peripherals</li>
-                    <li>Clock management: 4 to 50 MHz crystal oscillator</li>
-                    <li>General-purpose input/outputs: Up to 136 fast I/Os with interrupt capability most 5V-tolerant</li>
-                    <li>Up to 17 timers and 2 watchdogs</li>
                   </ul>
+                  <li>Core: Arm® 32-bit Cortex®-M33 CPU with TrustZone®, MPU, DSP, and FPU</li>
+                  <li>ART Accelerator: 8-Kbyte instruction cache allowing 0-wait-state execution from flash and external memories: up to 160 MHz, 240 DMIPS</li>
+                  <li>Power management: Embedded regulator (LDO) and SMPS step-down converter supporting switch on-the-fly and voltage scaling</li>
+                  <li>Benchmarks: 1.5 DMIPS/MHz (Drystone 2.1), 651 CoreMark® (4.07 CoreMark®/MHz), 450 ULPMark™-CP, 109 ULPMark™-PP, 51.5 ULPMark™-CM, 133000 SecureMark™-TLS</li>
+                  <li>Memories: 2-Mbyte flash memory with ECC, 2 banks read-while-write, including 512 Kbytes with 100 kcycles</li>
+                  <li>Security: Arm® TrustZone® and securable I/Os, memories, and peripherals</li>
+                  <li>Clock management: 4 to 50 MHz crystal oscillator</li>
+                  <li>General-purpose input/outputs: Up to 136 fast I/Os with interrupt capability most 5V-tolerant</li>
+                  <li>Up to 17 timers and 2 watchdogs</li>
                   <li>Up to 22 communication peripherals</li>
                   <li>16- and 4-channel DMA controllers, functional in Stop mode</li>
                   <li>Graphic features: Chrom-ART Accelerator (DMA2D) for enhanced graphic content creation</li>
@@ -92,19 +106,7 @@ const ProductsPage = () => {
                   <li>Core: Arm® 32-bit Cortex®-M33 CPU with TrustZone®, MPU, DSP, and FPU</li>
                   <li>ART Accelerator: 8-Kbyte instruction cache allowing 0-wait-state execution from flash and external memories: up to 160 MHz, 240 DMIPS</li>
                   <li>Power management: Embedded regulator (LDO) and SMPS step-down converter supporting switch on-the-fly and voltage scaling</li>
-                  <li>Benchmarks: 1.5 DMIPS/MHz (Drystone 2.1), 651 CoreMark® (4.07 CoreMark®/MHz), 450 ULPMark™-CP, 109 ULPMark™-PP, 51.5 ULPMark™-CM, 133000 SecureMark™-TLS</li>
-                  <li>Memories: 2-Mbyte flash memory with ECC, 2 banks read-while-write, including 512 Kbytes with 100 kcycles</li>
-                  <li>Security: Arm® TrustZone® and securable I/Os, memories, and peripherals</li>
-                  <li>Clock management: 4 to 50 MHz crystal oscillator</li>
-                  <li>General-purpose input/outputs: Up to 136 fast I/Os with interrupt capability most 5V-tolerant</li>
                   <li>Up to 17 timers and 2 watchdogs</li>
-                  <li>Up to 22 communication peripherals</li>
-                  <li>16- and 4-channel DMA controllers, functional in Stop mode</li>
-                  <li>Graphic features: Chrom-ART Accelerator (DMA2D) for enhanced graphic content creation</li>
-                  <li>Mathematical coprocessor: CORDIC for trigonometric functions acceleration</li>
-                  <li>Up to 22 capacitive sensing channels</li>
-                  <li>Rich analog peripherals (independent supply)</li>
-                  <li>ECOPACK2 compliant packages</li>
                 </>
               )}
             </ul>

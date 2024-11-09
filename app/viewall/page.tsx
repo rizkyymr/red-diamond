@@ -1,9 +1,19 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const ProductsPage = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const products = [
     {
       title: "Complete Development Kit Robot IoT",
@@ -20,10 +30,15 @@ const ProductsPage = () => {
       image: "/product3.jpg",
       link: "/product3"
     },
+    {
+      title: "LoRa BlackPill Development Board",
+      image: "/product4.png",
+      link: "/product4",
+    },
   ];
 
   return (
-    <div className='bg-white w-full h-screen mt-24 relative'>
+    <div className={`bg-white w-full h-screen mt-24 relative ${isVisible ? 'fade-in' : 'opacity-0'}`}>
       <div className='absolute top-4 left-4 z-10 mt-2'>
         <Link href="/" className="bg-black/50 text-white rounded-full p-2 hover:bg-gray-700 transition">
           Back to Home
