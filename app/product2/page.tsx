@@ -27,7 +27,7 @@ const ProductsPage = () => {
       link: "/product3",
     },
     {
-      title: "LoRa BlackPill Development Board",
+      title: "Board Controller Power Supply Hydraulic",
       image: "/product4.png",
       link: "/product4",
     },

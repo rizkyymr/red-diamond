@@ -1,8 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const products = [
+// Definisikan tipe untuk produk
+interface Product {
+    title: string;
+    image: string;
+    link: string;
+}
+
+const products: Product[] = [
     {
         title: "Complete Development Kit Robot IoT",
         image: "/product1.png",
@@ -26,12 +35,25 @@ const products = [
 ];
 
 export default function Products() {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef(null);
+    const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
+    const ref = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
+        AOS.init();
+
         const observer = new IntersectionObserver(([entry]) => {
-            setIsVisible(entry.isIntersecting);
+            if (entry.isIntersecting) {
+                products.forEach((product, index) => {
+                    setTimeout(() => {
+                        setVisibleProducts((prev) => {
+                            console.log("Menambahkan produk:", product);
+                            return [...prev, product];
+                        });
+                    }, index * 200);
+                });
+            } else {
+                setVisibleProducts([]);
+            }
         });
 
         if (ref.current) {
@@ -47,7 +69,7 @@ export default function Products() {
 
     return (
         <main id='products'>
-            <div className='bg-white w-full h-screen '>
+            <div className='bg-white w-full h-screen'>
                 <div className='text-center'>
                     <div className="inline-block">
                         <h1 className="text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
@@ -60,42 +82,40 @@ export default function Products() {
                     </p>
                 </div>
                 <section className="container mx-auto px-4 py-16">
-                    <div className={`flex justify-between items-start transform transition-transform duration-5000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-40 opacity-0'}`} ref={ref}>
-                        <div className="flex overflow-x-auto gap-8">
-                            {products.map((product, index) => (
-                                <div
-                                    key={index}
-                                    className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black"
-                                >
-                                    <div className="relative h-[300px] w-full">
-                                        <Image
-                                            src={product.image}
-                                            alt={product.title}
-                                            fill
-                                            className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
-                                        />
-                                    </div>
-                                    <div className="flex flex-col items-center mt-4">
-                                        <h3 className="text-black text-2xl font-bold tracking-wider">
-                                            {product.title}
-                                        </h3>
-                                        <div className="mt-10 flex-grow"></div>
-                                        <div className="absolute bottom-4 right-4">
-                                            <Link href={product.link} className="text-black hover:underline">
-                                                Read More <span>&#8594;</span>
-                                            </Link>
-                                        </div>
+                    <div className="flex justify-between items-center mb-4">
+                        <div></div>
+                        <Link href="/viewall" className="bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600">
+                            View All Products
+                        </Link>
+                    </div>
+                    <div className={`flex overflow-x-auto gap-8`} ref={ref}>
+                        {visibleProducts.map((product, index) => (
+                            <div
+                                key={index}
+                                className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black flex-shrink-0"
+                                data-aos="fade-up"
+                            >
+                                <div className="relative h-[300px] w-full">
+                                    <Image
+                                        src={product.image}
+                                        alt={product.title}
+                                        fill
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
+                                    />
+                                </div>
+                                <div className="flex flex-col items-center mt-4">
+                                    <h3 className="text-black text-2xl font-bold tracking-wider">
+                                        {product.title}
+                                    </h3>
+                                    <div className="mt-10 flex-grow"></div>
+                                    <div className="absolute bottom-4 right-4">
+                                        <Link href={product.link} className="text-black hover:underline">
+                                            Read More <span>&#8594;</span>
+                                        </Link>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-                        <div className='mt-4 flex items-center'>
-                            <div className="flex items-center justify-center bg-blue-500 text-white rounded-full px-4 py-2">
-                                <Link href="/viewall" className="text-center">
-                                    View All
-                                </Link>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </section>
             </div>
