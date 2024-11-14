@@ -6,9 +6,9 @@ export default function ImageSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    '/img1.JPG',
+    '/home1.JPG',
     '/img2.jpg',
-    '/img1.JPG',
+    '/home1.JPG',
   ];
 
   useEffect(() => {
