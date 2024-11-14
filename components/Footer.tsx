@@ -1,4 +1,36 @@
+import { useState } from 'react'; 
+import emailjs from 'emailjs-com'; 
+
 export default function Footer() {
+  const [fromName, setFromName] = useState(''); 
+  const [toName] = useState('Panna Bali'); 
+  const [message, setMessage] = useState(''); 
+  const [statusMessage, setStatusMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    emailjs.send('service_ut9eusk', 'template_06zcrji', {
+      from_name: fromName, 
+      to_name: toName, 
+      message: message,
+    }, 'xn7eOu8wBoz7EU0Cf')
+    .then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+      setStatusMessage('Your message has been successfully sent, thank you!');
+      setShowAlert(true);
+    })
+    .catch((err) => {
+      console.error('Failed to send email. Error: ', err);
+      setStatusMessage('Your message failed to send, try again!');
+      setShowAlert(true);
+    });
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
   return (
     <footer id="footer" className="w-full bg-dark-blue">
       <div className="container mx-auto px-4 py-20">
@@ -50,16 +82,20 @@ export default function Footer() {
                 <div className="h-1 bg-white mt-4"></div>
               </div>
             </div>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={sendEmail}>
               <input
-                type="email"
-                placeholder="Enter your email"
+                type="text"
+                placeholder="Your Name"
                 className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-white"
+                value={fromName}
+                onChange={(e) => setFromName(e.target.value)}
               />
               <textarea
                 placeholder="Your message"
                 rows={4}
                 className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-white"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
               <button
                 type="submit"
@@ -68,6 +104,21 @@ export default function Footer() {
                 Send Message
               </button>
             </form>
+            {showAlert && (
+              <div className="fixed top-0 left-0 right-0 flex justify-center items-center h-screen bg-black bg-opacity-50">
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <p className="text-black">{statusMessage}</p>
+                  <div className="flex justify-end">
+                    <button 
+                      onClick={handleCloseAlert} 
+                      className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+                    >
+                      OK
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
