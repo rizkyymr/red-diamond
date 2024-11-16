@@ -1,8 +1,8 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Footer from '@/components/Footer';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import React, { useEffect, useState } from "react";
+import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
 
 const ProductsPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,17 +18,17 @@ const ProductsPage = () => {
     {
       title: "Complete Development Kit Robot IoT",
       image: "/product1.png",
-      link: "/product1"
+      link: "/product1",
     },
     {
       title: "STM32U5 Development Board Microcontroller",
       image: "/product2.jpg",
-      link: "/product2"
+      link: "/product2",
     },
     {
       title: "LoRa BlackPill Development Board",
       image: "/product3.jpg",
-      link: "/product3"
+      link: "/product3",
     },
     {
       title: "Board Controller Power Supply Hydraulic",
@@ -38,13 +38,20 @@ const ProductsPage = () => {
   ];
 
   return (
-    <div className={`bg-white w-full h-auto mt-24 relative ${isVisible ? 'fade-in' : 'opacity-0'}`}>
-      <div className='absolute top-4 left-4 z-10 mt-2'>
-        <Link href="/" className="bg-black/50 text-white rounded-full p-2 hover:bg-gray-700 transition">
+    <div
+      className={`bg-white w-full h-auto mt-24 relative ${
+        isVisible ? "fade-in" : "opacity-0"
+      }`}
+    >
+      <div className="absolute top-4 left-4 z-10 mt-2">
+        <Link
+          href="/"
+          className="bg-black/50 text-white rounded-full p-2 hover:bg-gray-700 transition"
+        >
           Back to Home
         </Link>
       </div>
-      <div className='text-center'>
+      <div className="text-center">
         <div className="inline-block">
           <h1 className="text-2xl md:text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
             Products
@@ -59,7 +66,9 @@ const ProductsPage = () => {
       {/* Produk Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="mt-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-left uppercase">Other Products —</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-left uppercase">
+            Other Products —
+          </h2>
           {/* Wrapper Produk dengan Scroll Horizontal */}
           <div className="overflow-x-auto flex gap-4 mt-4 pb-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {products.map((product, index) => (
@@ -76,11 +85,15 @@ const ProductsPage = () => {
                   />
                 </div>
                 <div className="flex flex-col items-center mt-4">
-                  <h3 className="text-black text-lg md:text-2xl font-bold tracking-wider text-center">
+                  <h3 className="text-black text-xl md:text-2xl font-bold tracking-wider">
                     {product.title}
                   </h3>
-                  <div className="mt-4">
-                    <Link href={product.link} className="text-black hover:underline">
+                  <div className="mt-10 flex-grow"></div>
+                  <div className="absolute bottom-4 right-4">
+                    <Link
+                      href={product.link}
+                      className="text-black hover:underline"
+                    >
                       Read More <span>&#8594;</span>
                     </Link>
                   </div>
