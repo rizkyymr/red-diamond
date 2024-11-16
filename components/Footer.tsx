@@ -37,35 +37,35 @@ export default function Footer() {
         <div className="flex gap-20">
           <div className="w-1/2 text-white">
             <div className="inline-block">
-              <h6 className="text-4xl font-bold text-white uppercase tracking-wider">
+              <h6 className="text-xl md:text-4xl font-bold text-white uppercase tracking-wider">
                 Office
               </h6>
               <div className="h-1 bg-white mt-4"></div>
             </div>
             <div className="space-y-6 pt-5">
               <div>
-                <h3 className="text-xl font-semibold mb-2">Address</h3>
-                <p className="text-gray-300">
+                <h3 className="text-lg md:text-xl font-semibold mb-2">Address</h3>
+                <p className="text-gray-300 text-sm md:text-lg">
                   Jl. White Diamond V Jelupang, Serpong Utara<br />
                   West Tanggerang, Banten<br />
                   Indonesia
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Phone</h3>
-                <p className="text-gray-300">+62 818 708 211</p>
+                <h3 className="text-lg md:text-xl font-semibold mb-2">Phone</h3>
+                <p className="text-gray-300 text-sm md:text-lg">+62 818 708 211</p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Email</h3>
-                <p className="text-gray-300">panna.bali@potensio.net</p>
+                <h3 className="text-lg md:text-xl font-semibold mb-2">Email</h3>
+                <p className="text-gray-300 text-sm md:text-lg">panna.bali@potensio.net</p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Marketplace</h3>
+                <h3 className="text-lg md:text-xl font-semibold mb-2">Marketplace</h3>
                 <a 
                   href="https://www.tokopedia.com/rdlabs" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-300 text-sm md:text-lg hover:text-white transition-colors"
                 >
                   Tokopedia
                 </a>
@@ -76,7 +76,7 @@ export default function Footer() {
           <div className="w-1/2">
             <div className="mb-6">
               <div className="inline-block">
-                <h6 className="text-4xl font-bold text-white uppercase tracking-wider">
+                <h6 className="text-xl md:text-4xl font-bold text-white uppercase tracking-wider">
                   Send Message!
                 </h6>
                 <div className="h-1 bg-white mt-4"></div>
@@ -86,20 +86,20 @@ export default function Footer() {
               <input
                 type="text"
                 placeholder="Your Name"
-                className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-white"
+                className="w-full px-2 py-1 md:px-4 md:py-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-white"
                 value={fromName}
                 onChange={(e) => setFromName(e.target.value)}
               />
               <textarea
                 placeholder="Your message"
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-white"
+                className="w-full px-2 py-1 md:px-4 md:py-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-white"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
               <button
                 type="submit"
-                className="bg-white text-gray-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                className="bg-white text-gray-800 px-4 py-1 text-sm md:px-8 md:py-3 md:text-lg rounded-lg font-semibold hover:bg-gray-200 transition-colors"
               >
                 Send Message
               </button>
@@ -124,8 +124,8 @@ export default function Footer() {
       </div>
 
       <div className="w-full bg-white">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex justify-between items-center text-sm text-black">
+        <div className="container mx-auto px-2 pb-4 pt-2 md:px-4 md:py-2">
+          <div className="flex justify-between items-center text-xs md:text-sm text-black">
             <div className="flex gap-4">
               <a href="#" className="hover:text-gray-900 transition-colors">Sitemap</a>
               <span>|</span>
@@ -133,7 +133,7 @@ export default function Footer() {
               <span>|</span>
               <a href="#" className="hover:text-gray-900 transition-colors">FAQ</a>
             </div>
-            <div>
+            <div className='text-xs md:text-sm'>
               © 2024 RED DIAMONDS LAB
             </div>
           </div>

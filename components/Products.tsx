@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Definisikan tipe untuk produk
 interface Product {
     title: string;
     image: string;
@@ -72,19 +71,19 @@ export default function Products() {
             <div className='bg-white w-full h-screen'>
                 <div className='text-center'>
                     <div className="inline-block">
-                        <h1 className="text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
+                        <h1 className="text-2xl md:text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
                             Products
                         </h1>
                         <div className="h-1 bg-black mt-4"></div>
                     </div>
-                    <p className="text-black/80 max-w-2xl mx-auto mt-6 px-4 font-serif">
+                    <p className="text-black/80 max-w-2xl text-sm md:text-lg mx-auto mt-6 px-4 font-serif">
                         Here are some of the products we offer you —
                     </p>
                 </div>
                 <section className="container mx-auto px-4 py-16">
                     <div className="flex justify-between items-center mb-4">
                         <div></div>
-                        <Link href="/viewall" className="bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600">
+                        <Link href="/viewall" className="bg-blue-500 text-white text-sm md:text-base rounded-full px-2 py-1 md:px-4 md:py-4 hover:bg-blue-600">
                             View All Products
                         </Link>
                     </div>
@@ -92,10 +91,10 @@ export default function Products() {
                         {visibleProducts.map((product, index) => (
                             <div
                                 key={index}
-                                className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black flex-shrink-0"
+                                className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black flex-shrink-0 sm:w-64 md:w-72 lg:w-80"
                                 data-aos="fade-up"
                             >
-                                <div className="relative h-[300px] w-full">
+                                <div className="relative h-[250px] md:h-[300px] w-full">
                                     <Image
                                         src={product.image}
                                         alt={product.title}
@@ -104,7 +103,7 @@ export default function Products() {
                                     />
                                 </div>
                                 <div className="flex flex-col items-center mt-4">
-                                    <h3 className="text-black text-2xl font-bold tracking-wider">
+                                    <h3 className="text-black text-xl md:text-2xl font-bold tracking-wider">
                                         {product.title}
                                     </h3>
                                     <div className="mt-10 flex-grow"></div>

@@ -10,12 +10,12 @@ const ProductsPage = () => {
   };
 
   const handleViewAll = () => {
-    window.location.href = '/viewall'
+    window.location.href = '/viewall';
   };
 
   const products = [
     {
-      title: "Complete Development Kit Robot IoT",
+      title: "STM32U5 Development Board Microcontroller",
       image: "/product2.jpg",
       link: "/product2",
     },
@@ -29,7 +29,7 @@ const ProductsPage = () => {
       image: "/product4.png",
       link: "/product4",
     },
-  ]
+  ];
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -40,15 +40,20 @@ const ProductsPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
-    <div className={`flex flex-col min-h-screen w-full mt-28 justify-center ${isVisible ? 'fade-in' : 'opacity-0'}`}>
-      <div className="flex border p-4 bg-white w-full justify-center">
-        <img src="/product1.png" alt="Deskripsi Gambar" className="w-1/4 h-auto object-cover rounded-lg" />
-        <div className="flex flex-col justify-between p-4 w-1/2">
+    <div className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24   justify-center ${isVisible ? 'fade-in' : 'opacity-0'}`}>
+      <div className="flex flex-col md:flex-row border p-4 bg-white w-full justify-center items-center md:items-start">
+        <img
+          src="/product1.png"
+          alt="Deskripsi Gambar"
+          className="w-full md:w-1/4 h-auto object-cover rounded-lg mb-4 md:mb-0"
+        />
+        <div className="flex flex-col justify-between p-4 w-full md:w-1/2">
           <div>
-            <h2 className="text-4xl font-bold text-black text-center">Complete Development Kit Robot IoT</h2>
-            <p className="text-md text-black text-center">
+            <h2 className="text-2xl md:text-4xl font-bold text-black text-center md:text-left">
+              Complete Development Kit Robot IoT
+            </h2>
+            <p className="text-sm md:text-md text-black text-center md:text-left">
               Complete Development Kit Robot IoT Device RP2040 OLED Buzzer.
             </p>
             <h3 className="font-bold mt-4 text-black text-lg">Spesifikasi:</h3>
@@ -82,37 +87,34 @@ const ProductsPage = () => {
         </div>
       </div>
 
-      <div className='mt-4 ml-4'>
-      <h2 className="text-4xl font-bold text-left uppercase">Other Products —</h2>
-        <div className="flex justify-between items-start mt-4 mb-10">
-          <div className="flex overflow-x-auto gap-8">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black"
-              >
-                <div className="relative h-[300px] w-full">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
-                  />
-                </div>
-                <div className="flex flex-col items-center mt-4">
-                  <h3 className="text-black text-2xl font-bold tracking-wider">
-                    {product.title}
-                  </h3>
-                  <div className="mt-10 flex-grow"></div>
-                  <div className="absolute bottom-4 right-4">
-                    <Link href={product.link} className="text-black hover:underline">
-                      Read More <span>&#8594;</span>
-                    </Link>
-                  </div>
+      <div className="mt-4 px-4">
+        <h2 className="text-2xl md:text-4xl font-bold text-left uppercase">Other Products —</h2>
+        <div className="flex overflow-x-auto gap-4 mt-4 pb-4">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="relative group cursor-pointer overflow-hidden rounded-2xl w-72 md:w-80 bg-white shadow-lg p-4 border border-gray-300 flex-shrink-0"
+            >
+              <div className="relative h-[200px] md:h-[300px] w-full">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
+                />
+              </div>
+              <div className="flex flex-col items-center mt-4">
+                <h3 className="text-black text-lg md:text-2xl font-bold tracking-wider text-center">
+                  {product.title}
+                </h3>
+                <div className="mt-4">
+                  <Link href={product.link} className="text-black hover:underline">
+                    Read More <span>&#8594;</span>
+                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -121,4 +123,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage; 
+export default ProductsPage;

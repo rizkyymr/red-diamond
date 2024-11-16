@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
@@ -38,7 +38,7 @@ const ProductsPage = () => {
   ];
 
   return (
-    <div className={`bg-white w-full h-screen mt-24 relative ${isVisible ? 'fade-in' : 'opacity-0'}`}>
+    <div className={`bg-white w-full h-auto mt-24 relative ${isVisible ? 'fade-in' : 'opacity-0'}`}>
       <div className='absolute top-4 left-4 z-10 mt-2'>
         <Link href="/" className="bg-black/50 text-white rounded-full p-2 hover:bg-gray-700 transition">
           Back to Home
@@ -46,7 +46,7 @@ const ProductsPage = () => {
       </div>
       <div className='text-center'>
         <div className="inline-block">
-          <h1 className="text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
+          <h1 className="text-2xl md:text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
             Products
           </h1>
           <div className="h-1 bg-black mt-4"></div>
@@ -55,15 +55,19 @@ const ProductsPage = () => {
           Here are some of the products we offer you.
         </p>
       </div>
+
+      {/* Produk Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="flex justify-between items-start">
-          <div className="flex overflow-x-auto gap-8">
+        <div className="mt-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-left uppercase">Other Products —</h2>
+          {/* Wrapper Produk dengan Scroll Horizontal */}
+          <div className="overflow-x-auto flex gap-4 mt-4 pb-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {products.map((product, index) => (
               <div
                 key={index}
-                className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black"
+                className="relative group cursor-pointer overflow-hidden rounded-2xl w-72 md:w-80 bg-white shadow-lg p-4 border border-gray-300 flex-shrink-0"
               >
-                <div className="relative h-[300px] w-full">
+                <div className="relative h-[200px] md:h-[300px] w-full">
                   <Image
                     src={product.image}
                     alt={product.title}
@@ -72,11 +76,10 @@ const ProductsPage = () => {
                   />
                 </div>
                 <div className="flex flex-col items-center mt-4">
-                  <h3 className="text-black text-2xl font-bold tracking-wider">
+                  <h3 className="text-black text-lg md:text-2xl font-bold tracking-wider text-center">
                     {product.title}
                   </h3>
-                  <div className="mt-10 flex-grow"></div>
-                  <div className="absolute bottom-4 right-4">
+                  <div className="mt-4">
                     <Link href={product.link} className="text-black hover:underline">
                       Read More <span>&#8594;</span>
                     </Link>
@@ -87,6 +90,7 @@ const ProductsPage = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );
