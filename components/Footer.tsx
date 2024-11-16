@@ -47,7 +47,7 @@ export default function Footer() {
                 <h3 className="text-lg md:text-xl font-semibold mb-2">Address</h3>
                 <p className="text-gray-300 text-sm md:text-lg">
                   Jl. White Diamond V Jelupang, Serpong Utara<br />
-                  West Tanggerang, Banten<br />
+                  South Tangerang, Banten<br />
                   Indonesia
                 </p>
               </div>
@@ -57,7 +57,7 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-lg md:text-xl font-semibold mb-2">Email</h3>
-                <p className="text-gray-300 text-sm md:text-lg">panna.bali@potensio.net</p>
+                <p className="text-gray-300 text-sm md:text-lg">panna.bali@potensi.net</p>
               </div>
               <div>
                 <h3 className="text-lg md:text-xl font-semibold mb-2">Marketplace</h3>
