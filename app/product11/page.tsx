@@ -7,7 +7,7 @@ import Link from "next/link";
 const ProductsPage = () => {
   const handleBuy = () => {
     window.location.href =
-      "https://www.tokopedia.com/rdlabs/complete-development-kit-robot-iot-device-rp2040-oled-buzzer-board-buzzer-d086a?extParam=src%3Dshop%26whid%3D410203";
+      "https://www.tokopedia.com/rdlabs/power-supply-300-watt-module-board-24-volt-9a?extParam=whid%3D410203%26src%3Dshop";
   };
 
   const handleViewAll = () => {
@@ -15,6 +15,11 @@ const ProductsPage = () => {
   };
 
   const products = [
+    {
+      title: "Complete Development Kit Robot IoT",
+      image: "/product1.png",
+      link: "/product1",
+    },
     {
       title: "STM32U5 Development Board Microcontroller",
       image: "/product2.jpg",
@@ -61,11 +66,6 @@ const ProductsPage = () => {
       link: "/product10",
     },
     {
-      title: "Power Supply 300 Watt Module Board 24 Volt 9A",
-      image: "/product11.png",
-      link: "/product11",
-    },
-    {
       title: "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
       image: "/product12.png",
       link: "/product12",
@@ -83,48 +83,44 @@ const ProductsPage = () => {
 
   return (
     <div
-      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24   justify-center ${
+      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24 justify-center  ${
         isVisible ? "fade-in" : "opacity-0"
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 md:p-6 bg-white w-full justify-center items-center md:items-start">
         <img
-          src="/product1.png"
+          src="/product11.png"
           alt="Deskripsi Gambar"
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">
           <div>
             <h2 className="text-2xl md:text-4xl font-bold text-black text-center md:text-left">
-              Complete Development Kit Robot IoT
+              Power Supply 300 Watt Module Board 24 Volt 9A
             </h2>
-            <h3 className="font-bold mt-4 text-black text-lg">Spesifikasi:</h3>
-            <ul className="list-disc list-inside text-sm text-black mt-2">
-              <li>Power 5V USB Type-C</li>
-              <li>Switch Power</li>
-              <li>
-                10 Grove output untuk digunakan sebagai koneksi sensor yang akan
-                digunakan
-              </li>
-              <li>Motor Driver menggunakan Chip MX1508</li>
-              <li>Pin IO sudah tertulis di setiap Grove</li>
-              <li>LED internal yang sudah terpasang, Buzzer dan Motor Servo</li>
-              <li>2 User buttons</li>
-              <li>WiFi Module ESP8266</li>
-              <li>Grove 8 Direkomendasikan untuk Modul Bluetooth HC05</li>
-              <li>Untuk Display Direkomendasikan menggunakan SH1106</li>
+            <h3 className="font-bold mt-4 text-black">a. Description:</h3>
+            <ul className="list-disc list-inside text-sm text-black">
+              <li>Input Voltage, AC 85-260V</li>
+              <li>Output Voltage, 24V DC</li>
+              <li>Output Current, 9A</li>
+              <li>Output Power, 150 W (Max 220 W)</li>
+              <li>Ripple output: less than 150 mV</li>
+              <li>Overall dimensions: 125x66mm</li>
+              <li>Protection against short circuit: Yes</li>
+              <li>Over-current protection: Yes</li>
+              <li>Overload protection: Yes</li>
             </ul>
           </div>
-          <div className="flex justify-between mt-4">
+          <div className="flex flex-col sm:flex-row justify-between mt-4 gap-4">
             <button
               onClick={handleViewAll}
-              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 w-full sm:w-auto"
             >
               All Products
             </button>
             <button
               onClick={handleBuy}
-              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full sm:w-auto"
             >
               Buy
             </button>

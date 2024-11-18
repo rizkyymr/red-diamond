@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductsPage = () => {
+
   const handleBuy = () => {
     window.location.href =
-      "https://www.tokopedia.com/rdlabs/complete-development-kit-robot-iot-device-rp2040-oled-buzzer-board-buzzer-d086a?extParam=src%3Dshop%26whid%3D410203";
+      "https://www.tokopedia.com/rdlabs/stmicroelectronics-nucleo-144-u575zi-q-development-board-mcu?extParam=src%3Dshop%26whid%3D410203";
   };
 
   const handleViewAll = () => {
@@ -15,6 +16,11 @@ const ProductsPage = () => {
   };
 
   const products = [
+    {
+      title: "Complete Development Kit Robot IoT",
+      image: "/product1.png",
+      link: "/product1",
+    },
     {
       title: "STM32U5 Development Board Microcontroller",
       image: "/product2.jpg",
@@ -44,11 +50,6 @@ const ProductsPage = () => {
       title: "STM32 NUCLEO G491RE STM32G491RE ARM Cortex M4 AT 170MHz",
       image: "/product7.png",
       link: "/product7",
-    },
-    {
-      title: "STMicroelectronics Nucleo-144 U575ZI-Q Development Board MCU",
-      image: "/product8.png",
-      link: "/product8",
     },
     {
       title: "STM32 Arduino Green Pill Development Board STM32G431CBT6",
@@ -83,48 +84,88 @@ const ProductsPage = () => {
 
   return (
     <div
-      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24   justify-center ${
+      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24 justify-center  ${
         isVisible ? "fade-in" : "opacity-0"
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 md:p-6 bg-white w-full justify-center items-center md:items-start">
         <img
-          src="/product1.png"
+          src="/product8.png"
           alt="Deskripsi Gambar"
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">
           <div>
             <h2 className="text-2xl md:text-4xl font-bold text-black text-center md:text-left">
-              Complete Development Kit Robot IoT
+              STMicroelectronics Nucleo-144 U575ZI-Q Development Board MCU
             </h2>
-            <h3 className="font-bold mt-4 text-black text-lg">Spesifikasi:</h3>
-            <ul className="list-disc list-inside text-sm text-black mt-2">
-              <li>Power 5V USB Type-C</li>
-              <li>Switch Power</li>
+            <h3 className="font-bold mt-4 text-black">Features:</h3>
+            <p className="text-sm text-black">
+              Can be used to try new concepts and build prototypes. Choose from
+              the various combinations of performance and power consumption
+              features provided by the STM32 microcontroller. For the compatible
+              boards, the internal or external SMPS significantly reduces power
+              consumption in Run mode.
+            </p>
+            <p className="text-sm text-black">
+              The ST Zio connector extends the ARDUINO® Uno V3 connectivity. The
+              ST morpho headers provide an easy means of expanding the
+              functionality of the Nucleo open development platform with a wide
+              choice of specialized shields.
+            </p>
+            <h3 className="font-bold mt-4 text-black">FEATURES :</h3>
+            <h4 className="font-bold mt-2 text-black">1.) Common Features :</h4>
+            <ul className="list-disc list-inside text-sm text-black">
+              <li>STM32 microcontroller in LQFP144 package</li>
+              <li>3 user LEDs</li>
+              <li>2 user and reset push-buttons</li>
+              <li>32.768 kHz crystal oscillator</li>
               <li>
-                10 Grove output untuk digunakan sebagai koneksi sensor yang akan
-                digunakan
+                Board connectors: SWD, ST Zio expansion connector including
+                ARDUINO® Uno V3, ST morpho expansion connector
               </li>
-              <li>Motor Driver menggunakan Chip MX1508</li>
-              <li>Pin IO sudah tertulis di setiap Grove</li>
-              <li>LED internal yang sudah terpasang, Buzzer dan Motor Servo</li>
-              <li>2 User buttons</li>
-              <li>WiFi Module ESP8266</li>
-              <li>Grove 8 Direkomendasikan untuk Modul Bluetooth HC05</li>
-              <li>Untuk Display Direkomendasikan menggunakan SH1106</li>
+              <li>
+                Flexible power-supply options: ST-LINK, USB VBUS, or external
+                sources
+              </li>
+              <li>
+                On-board ST-LINK debugger/programmer with USB re-enumeration
+                capability: mass storage, Virtual COM port, and debug port
+              </li>
+              <li>
+                Comprehensive free software libraries and examples available
+                with the STM32Cube MCU Package
+              </li>
+              <li>
+                Support of a wide choice of Integrated Development Environments
+                (IDEs) including IAR Embedded Workbench®, MDK-ARM, and
+                STM32CubeIDE
+              </li>
+            </ul>
+            <h4 className="font-bold mt-4 text-black">
+              2.) Board Specific Features :
+            </h4>
+            <ul className="list-disc list-inside text-sm text-black">
+              <li>External or internal SMPS to generate Vcore logic supply</li>
+              <li>Ethernet compliant with IEEE-802.3-2002</li>
+              <li>USB OTG full speed or device only</li>
+              <li>
+                Board connectors: USB with Micro-AB or USB Type-C®, Ethernet
+                RJ45
+              </li>
+              <li>Arm® Mbed Enabled™ compliant</li>
             </ul>
           </div>
-          <div className="flex justify-between mt-4">
+          <div className="flex flex-col sm:flex-row justify-between mt-4 gap-4">
             <button
               onClick={handleViewAll}
-              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 w-full sm:w-auto"
             >
               All Products
             </button>
             <button
               onClick={handleBuy}
-              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full sm:w-auto"
             >
               Buy
             </button>

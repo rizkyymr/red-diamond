@@ -7,7 +7,7 @@ import Link from "next/link";
 const ProductsPage = () => {
   const handleBuy = () => {
     window.location.href =
-      "https://www.tokopedia.com/rdlabs/complete-development-kit-robot-iot-device-rp2040-oled-buzzer-board-buzzer-d086a?extParam=src%3Dshop%26whid%3D410203";
+      "https://www.tokopedia.com/rdlabs/turtle-board-heltec-automation-stm32l43kc-lorawan-wireless-module?extParam=src%3Dshop%26whid%3D410203";
   };
 
   const handleViewAll = () => {
@@ -15,6 +15,11 @@ const ProductsPage = () => {
   };
 
   const products = [
+    {
+      title: "Complete Development Kit Robot IoT",
+      image: "/product1.png",
+      link: "/product1",
+    },
     {
       title: "STM32U5 Development Board Microcontroller",
       image: "/product2.jpg",
@@ -65,11 +70,6 @@ const ProductsPage = () => {
       image: "/product11.png",
       link: "/product11",
     },
-    {
-      title: "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
-      image: "/product12.png",
-      link: "/product12",
-    },
   ];
 
   const [isVisible, setIsVisible] = useState(false);
@@ -83,48 +83,60 @@ const ProductsPage = () => {
 
   return (
     <div
-      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24   justify-center ${
+      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24 justify-center  ${
         isVisible ? "fade-in" : "opacity-0"
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 md:p-6 bg-white w-full justify-center items-center md:items-start">
         <img
-          src="/product1.png"
+          src="/product12.png"
           alt="Deskripsi Gambar"
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">
           <div>
             <h2 className="text-2xl md:text-4xl font-bold text-black text-center md:text-left">
-              Complete Development Kit Robot IoT
+              Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module
             </h2>
-            <h3 className="font-bold mt-4 text-black text-lg">Spesifikasi:</h3>
-            <ul className="list-disc list-inside text-sm text-black mt-2">
-              <li>Power 5V USB Type-C</li>
-              <li>Switch Power</li>
+            <h3 className="font-bold mt-4 text-black">a. Description:</h3>
+            <ul className="list-disc list-inside text-sm text-black">
+              <li>Source, Parameters</li>
               <li>
-                10 Grove output untuk digunakan sebagai koneksi sensor yang akan
-                digunakan
+                MCU, STM32L432KC (Ultra-low-power 32-bit MCU+FPU ARM®
+                Cortex®-M4)
               </li>
-              <li>Motor Driver menggunakan Chip MX1508</li>
-              <li>Pin IO sudah tertulis di setiap Grove</li>
-              <li>LED internal yang sudah terpasang, Buzzer dan Motor Servo</li>
-              <li>2 User buttons</li>
-              <li>WiFi Module ESP8266</li>
-              <li>Grove 8 Direkomendasikan untuk Modul Bluetooth HC05</li>
-              <li>Untuk Display Direkomendasikan menggunakan SH1106</li>
+              <li>LoRa chip, SX1276</li>
+              <li>
+                LoRa bands, EU_433, CN_470_510, EU_863_870, US_902_928 four
+                bands optional
+              </li>
+              <li>LoRa maximum output power, 18dB ± 2dB</li>
+              <li>
+                Hardware Resources, USART x 3; SPI x 2; I2C x 2; SAI x 1; USB
+                2.0 x 1; 12 bits ADC x 1;12 bits DAC x 2.
+              </li>
+              <li>DMA controller, 14 channels</li>
+              <li>GPIO, 26 fast I/O, most 5 volt tolerance</li>
+              <li>Flash, 256kb flash; 64KB sram;</li>
+              <li>Interface, Micro USB x 1; LoRa antenna(SMA) x 1,</li>
+              <li>Debug interface, (8-Pin)</li>
+              <li>Size, 56.6 x 24 x 20 mm</li>
+              <li>Battery Type, AAA x 2</li>
+              <li>Battery detection circuit, √</li>
+              <li>External device power control(Vext): √</li>
+              <li>Low power design, Deep Sleep: 4uA</li>
             </ul>
           </div>
-          <div className="flex justify-between mt-4">
+          <div className="flex flex-col sm:flex-row justify-between mt-4 gap-4">
             <button
               onClick={handleViewAll}
-              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 w-full sm:w-auto"
             >
               All Products
             </button>
             <button
               onClick={handleBuy}
-              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full sm:w-auto"
             >
               Buy
             </button>

@@ -30,6 +30,46 @@ const ProductsPage = () => {
       image: "/product3.jpg",
       link: "/product3",
     },
+    {
+      title: "STM32 Nucleo G474RE Development Board Microcontroller",
+      image: "/product5.png",
+      link: "/product5",
+    },
+    {
+      title: "STM32 Nucleo-64 G0B1RE Development Board MCU",
+      image: "/product6.png",
+      link: "/product6",
+    },
+    {
+      title: "STM32 NUCLEO G491RE STM32G491RE ARM Cortex M4 AT 170MHz",
+      image: "/product7.png",
+      link: "/product7",
+    },
+    {
+      title: "STMicroelectronics Nucleo-144 U575ZI-Q Development Board MCU",
+      image: "/product8.png",
+      link: "/product8",
+    },
+    {
+      title: "STM32 Arduino Green Pill Development Board STM32G431CBT6",
+      image: "/product9.jpg",
+      link: "/product9",
+    },
+    {
+      title: "Development board LoRa 920-923 MHz muRata 1SJ + STLink-v3",
+      image: "/product10.png",
+      link: "/product10",
+    },
+    {
+      title: "Power Supply 300 Watt Module Board 24 Volt 9A",
+      image: "/product11.png",
+      link: "/product11",
+    },
+    {
+      title: "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
+      image: "/product12.png",
+      link: "/product12",
+    },
   ];
 
   const [isVisible, setIsVisible] = useState(false);
@@ -47,12 +87,11 @@ const ProductsPage = () => {
         isVisible ? "fade-in" : "opacity-0"
       }`}
     >
-      {/* Section Utama */}
       <div className="flex flex-col md:flex-row border p-4 bg-white w-full justify-center items-center md:items-start">
         <img
           src="/product4.png"
           alt="Deskripsi Gambar"
-          className="w-full md:w-1/3 lg:w-1/4 h-auto object-cover rounded-lg mb-4 md:mb-0"
+          className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 w-full md:w-2/3">
           <div>

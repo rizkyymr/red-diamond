@@ -7,7 +7,7 @@ import Link from "next/link";
 const ProductsPage = () => {
   const handleBuy = () => {
     window.location.href =
-      "https://www.tokopedia.com/rdlabs/complete-development-kit-robot-iot-device-rp2040-oled-buzzer-board-buzzer-d086a?extParam=src%3Dshop%26whid%3D410203";
+      "https://www.tokopedia.com/rdlabs/development-board-lora-920-923-mhz-murata-1sj-stlink-v3?extParam=src%3Dshop%26whid%3D410203";
   };
 
   const handleViewAll = () => {
@@ -15,6 +15,11 @@ const ProductsPage = () => {
   };
 
   const products = [
+    {
+      title: "Complete Development Kit Robot IoT",
+      image: "/product1.png",
+      link: "/product1",
+    },
     {
       title: "STM32U5 Development Board Microcontroller",
       image: "/product2.jpg",
@@ -56,11 +61,6 @@ const ProductsPage = () => {
       link: "/product9",
     },
     {
-      title: "Development board LoRa 920-923 MHz muRata 1SJ + STLink-v3",
-      image: "/product10.png",
-      link: "/product10",
-    },
-    {
       title: "Power Supply 300 Watt Module Board 24 Volt 9A",
       image: "/product11.png",
       link: "/product11",
@@ -83,48 +83,62 @@ const ProductsPage = () => {
 
   return (
     <div
-      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24   justify-center ${
+      className={`flex flex-col min-h-screen w-full mt-20 md:mt-24 lg:mt-24 justify-center  ${
         isVisible ? "fade-in" : "opacity-0"
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 md:p-6 bg-white w-full justify-center items-center md:items-start">
         <img
-          src="/product1.png"
+          src="/product10.png"
           alt="Deskripsi Gambar"
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">
           <div>
             <h2 className="text-2xl md:text-4xl font-bold text-black text-center md:text-left">
-              Complete Development Kit Robot IoT
+              Development board LoRa 920-923 MHz muRata 1SJ + STLink-v3
             </h2>
-            <h3 className="font-bold mt-4 text-black text-lg">Spesifikasi:</h3>
-            <ul className="list-disc list-inside text-sm text-black mt-2">
-              <li>Power 5V USB Type-C</li>
-              <li>Switch Power</li>
+            <p className="text-lg text-black">
+              PRE ORDER!
+            </p>
+            <h3 className="font-bold mt-4 text-black">a. Specifications:</h3>
+            <ul className="list-disc list-inside text-sm text-black">
+              <li>Product Type: Module</li>
+              <li>Part Number: LBAA0QB1SJ</li>
+              <li>LoRaWAN™ Channel Band: 860-930MHz</li>
+              <li>Chipset: Semtech (SX1262) + STM (STM32L)</li>
+              <li>Modulation: FSK and LoRa™ Modulation</li>
+              <li>Antenna: External</li>
+              <li>Operating Temperature Range: -40 to +85 °C</li>
+              <li>Dimension: 10.0 mm x 8.0 mm x 1.6 mm</li>
+              <li>Interface Voltage (VIO): 3.3 Vdc</li>
+              <li>Supply Voltage:</li>
+              <ul className="list-disc list-inside ml-4">
+                <li>Min: 2.2V for VDD_MCU, VDD_RF, VDD_TCXO</li>
+                <li>Max: 3.6V for VDD_MCU, VDD_RF, VDD_TCXO</li>
+              </ul>
+              <li>Transmit Mode Current: 118mA @ 22dBm setting</li>
+              <li>Transmit Power: Up to +21.5dBm</li>
+              <li>Receive Mode Current: 15.5mA @ 125kHz BW</li>
               <li>
-                10 Grove output untuk digunakan sebagai koneksi sensor yang akan
-                digunakan
+                Receiver Sensitivity: -135.5dBm @ 1% PER, 125kHz BW, SF=12
               </li>
-              <li>Motor Driver menggunakan Chip MX1508</li>
-              <li>Pin IO sudah tertulis di setiap Grove</li>
-              <li>LED internal yang sudah terpasang, Buzzer dan Motor Servo</li>
-              <li>2 User buttons</li>
-              <li>WiFi Module ESP8266</li>
-              <li>Grove 8 Direkomendasikan untuk Modul Bluetooth HC05</li>
-              <li>Untuk Display Direkomendasikan menggunakan SH1106</li>
+              <li>Host Interface: I2C/ UART/ USB/ SPI</li>
+              <li>RoHS Compliant: Yes</li>
+              <li>Technology: LPWA</li>
+              <li>FCC/IC Certified: FCC/IC Reference Certified</li>
             </ul>
           </div>
-          <div className="flex justify-between mt-4">
+          <div className="flex flex-col sm:flex-row justify-between mt-4 gap-4">
             <button
               onClick={handleViewAll}
-              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 w-full sm:w-auto"
             >
               All Products
             </button>
             <button
               onClick={handleBuy}
-              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full sm:w-auto"
             >
               Buy
             </button>
