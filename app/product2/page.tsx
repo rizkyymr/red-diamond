@@ -60,10 +60,6 @@ const ProductsPage = () => {
             <h2 className="text-2xl md:text-4xl font-bold text-black text-center md:text-left">
               STM32U5 Development Board Microcontroller
             </h2>
-            <p className="text-sm md:text-md text-black text-center md:text-left mt-2">
-              STM32U575VGT6 Ultra-low-power with FPU Arm Cortex-M33 MCU with
-              TrustZone, 160 MHz with 1 Mbyte of Flash memory.
-            </p>
             <h3 className="font-bold mt-4 text-black">a. Description:</h3>
             <p className="text-sm text-black">
               The STM32U575xx devices belong to an ultra-low-power
@@ -207,9 +203,10 @@ const ProductsPage = () => {
         </h2>
         <div className="flex overflow-x-auto gap-4 mt-4 pb-4">
           {products.map((product, index) => (
-            <div
+            <Link
               key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-2xl w-72 md:w-80 bg-white shadow-lg p-4 border border-gray-300 flex-shrink-0"
+              href={product.link}
+              className="relative group cursor-pointer overflow-hidden rounded-2xl w-72 md:w-80 bg-white shadow-lg p-4 border-2 border-gray-300 flex-shrink-0"
             >
               <div className="relative h-[200px] md:h-[300px] w-full">
                 <Image
@@ -223,17 +220,8 @@ const ProductsPage = () => {
                 <h3 className="text-black text-xl md:text-2xl font-bold tracking-wider">
                   {product.title}
                 </h3>
-                <div className="mt-10 flex-grow"></div>
-                <div className="absolute bottom-4 right-4">
-                  <Link
-                    href={product.link}
-                    className="text-black hover:underline"
-                  >
-                    Read More <span>&#8594;</span>
-                  </Link>
-                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

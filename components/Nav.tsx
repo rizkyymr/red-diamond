@@ -31,7 +31,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="flex items-center justify-end ml-20">
+    <div className="flex items-center justify-end ml-14">
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}

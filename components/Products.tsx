@@ -44,10 +44,7 @@ export default function Products() {
             if (entry.isIntersecting) {
                 products.forEach((product, index) => {
                     setTimeout(() => {
-                        setVisibleProducts((prev) => {
-                            console.log("Menambahkan produk:", product);
-                            return [...prev, product];
-                        });
+                        setVisibleProducts((prev) => [...prev, product]);
                     }, index * 200);
                 });
             } else {
@@ -89,9 +86,10 @@ export default function Products() {
                     </div>
                     <div className={`flex overflow-x-auto gap-8`} ref={ref}>
                         {visibleProducts.map((product, index) => (
-                            <div
+                            <Link
                                 key={index}
-                                className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-4 border-black flex-shrink-0 sm:w-64 md:w-72 lg:w-80"
+                                href={product.link}
+                                className="relative group cursor-pointer overflow-hidden rounded-2xl w-80 bg-white shadow-lg p-4 border-2 border-gray-300 flex-shrink-0 sm:w-64 md:w-72 lg:w-80"
                                 data-aos="fade-up"
                             >
                                 <div className="relative h-[250px] md:h-[300px] w-full">
@@ -106,18 +104,12 @@ export default function Products() {
                                     <h3 className="text-black text-xl md:text-2xl font-bold tracking-wider">
                                         {product.title}
                                     </h3>
-                                    <div className="mt-10 flex-grow"></div>
-                                    <div className="absolute bottom-4 right-4">
-                                        <Link href={product.link} className="text-black hover:underline">
-                                            Read More <span>&#8594;</span>
-                                        </Link>
-                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </section>
             </div>
         </main>
     );
-} 
+}

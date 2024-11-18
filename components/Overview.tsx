@@ -8,7 +8,7 @@ export default function History() {
   }, []);
 
   return (
-    <main id="main" className="h-[120vh] md:h-screen w-full bg-gray-200">
+    <main id="main" className="h-[120vh] md:h-[140vh] lg:h-screen w-full bg-gray-200">
       <div className="pt-20 pb-10 text-center">
         <div className="inline-block">
           <h1 className="text-2xl md:text-4xl font-bold text-black uppercase tracking-wider font-customFont">
@@ -46,7 +46,7 @@ export default function History() {
           </div>
 
           <div className="w-full md:w-1/2">
-            <div className="flex-col bg-blue-gray rounded-lg p-8 h-auto md:h-[594px] md:pt-32 shadow-lg flex" data-aos="fade-up">
+            <div className="flex-col bg-blue-gray rounded-lg p-8 h-auto shadow-lg flex" data-aos="fade-up">
               <h1 className="text-1xl md:text-3xl text-white font-bold">Goals —</h1>
               <p className="text-white text-sm md:text-lg">
                 The company aims to be a provider of innovative, high quality and affordable electronic development board solutions,
@@ -55,7 +55,7 @@ export default function History() {
                 supports exploration and development of technical skills, and encourages the growth of a solid community. We also have partnerships
                 with educational institutions and the technology community, providing relevant training and development programs. Through cost optimization
                 and strict quality standards, the company is determined to create reliable products, increase technological accessibility and become an important part
-                in the progress of the global electronics industry.
+                in the progress of the global electronics industry.
               </p>
             </div>
           </div>
