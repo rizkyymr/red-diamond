@@ -111,14 +111,6 @@ const ProductsPage = () => {
         isVisible ? "fade-in" : "opacity-0"
       }`}
     >
-      <div className="absolute top-4 left-4 z-10 mt-2">
-        <Link
-          href="/"
-          className="bg-black/50 text-white rounded-full p-2 hover:bg-gray-700 transition"
-        >
-          Back to Home
-        </Link>
-      </div>
       <div className="text-center">
         <div className="inline-block">
           <h1 className="text-2xl md:text-4xl font-bold text-black uppercase tracking-wider mt-10 font-customFont">
@@ -133,7 +125,7 @@ const ProductsPage = () => {
 
       <section className="container mx-auto px-4 py-16">
         {categories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-12">
+          <div key={categoryIndex} className="mb-12" id={category.toLowerCase().replace(/ /g, '-')}>
             <h2 className="text-xl md:text-2xl font-bold text-black mb-4">
               {category} —
             </h2>

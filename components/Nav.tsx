@@ -1,43 +1,50 @@
 "use client";
-import { Link as ScrollLink } from "react-scroll";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
   {
     name: "HOME",
     path: "header",
-    href: "/"
+    href: "/",
   },
   {
     name: "OVERVIEW",
     path: "main",
-    href: "/"
+    href: "/",
   },
   {
     name: "PRODUCTS",
     path: "products",
-    href: "/viewall"
+    href: "/viewall",
   },
   {
     name: "CONTACT",
     path: "footer",
-    href: "/"
-  }
+    href: "/",
+  },
+];
+
+const categories = [
+  "Development Board",
+  "STMicroelectronics STM32",
+  "LoRa Dev Board",
+  "Power Supply",
 ];
 
 const Nav = () => {
-  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <div className="flex items-center justify-end ml-14">
-      {/* Tombol Menu Mobile */}
       <button
         onClick={toggleMenu}
         className={`text-2xl focus:outline-none md:hidden relative 
@@ -47,33 +54,42 @@ const Nav = () => {
         &#9776;
       </button>
 
-      {/* Link Desktop */}
       <div className="hidden md:flex md:flex-row gap-4">
         {links.map((link, index) => (
-          pathname === "/" ? (
-            <ScrollLink
-              to={link.path}
-              key={index}
-              smooth={true}
-              duration={500}
-              offset={-80}
-              spy={true}
-              className={`${
-                link.path === pathname ? "text-blue-500 border-b-4 border-blue-500" : ""
-              } capitalize font-medium hover:text-blue-500 transition-all cursor-pointer`}
-            >
-              {link.name}
-            </ScrollLink>
-          ) : (
-            <Link
-              key={index}
-              href={link.href}
-              className={`capitalize font-medium hover:text-blue-500 transition-all cursor-pointer`}
-            >
-              {link.name}
-            </Link>
-          )
+          <a
+            key={index}
+            href={link.href}
+            className={`capitalize font-medium hover:text-blue-500 transition-all cursor-pointer`}
+          >
+            {link.name}
+          </a>
         ))}
+
+        <div className="relative">
+          <button
+            onClick={toggleDropdown}
+            className="capitalize font-medium hover:text-blue-500 transition-all cursor-pointer"
+          >
+            KATEGORI
+          </button>
+          {isDropdownOpen && (
+            <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-md z-50">
+              <ul className="flex flex-col">
+                {categories.map((category, index) => (
+                  <li key={index} className="hover:bg-gray-200 transition">
+                    <a
+                      href={`#${category.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="block px-4 py-2 text-sm text-black"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      {category}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Overlay Mobile */}
@@ -92,32 +108,45 @@ const Nav = () => {
       >
         <div className="flex flex-col gap-4 p-4">
           {links.map((link, index) => (
-            pathname === "/" ? (
-              <ScrollLink
-                to={link.path}
-                key={index}
-                smooth={true}
-                duration={500}
-                offset={-80}
-                spy={true}
-                onClick={toggleMenu}
-                className={`${
-                  link.path === pathname ? "text-blue-500 border-b-4 border-blue-500" : ""
-                } capitalize font-medium hover:text-blue-500 transition-all cursor-pointer`}
-              >
-                {link.name}
-              </ScrollLink>
-            ) : (
-              <Link
-                key={index}
-                href={link.href}
-                onClick={toggleMenu}
-                className={`capitalize font-medium hover:text-blue-500 transition-all cursor-pointer`}
-              >
-                {link.name}
-              </Link>
-            )
+            <a
+              key={index}
+              href={link.href}
+              onClick={toggleMenu}
+              className={`capitalize font-medium hover:text-blue-500 transition-all cursor-pointer`}
+            >
+              {link.name}
+            </a>
           ))}
+
+          {/* Kategori di Sidebar */}
+          <div className="relative">
+            <button
+              onClick={toggleDropdown}
+              className="capitalize font-medium hover:text-blue-500 transition-all cursor-pointer"
+            >
+              KATEGORI
+            </button>
+            {isDropdownOpen && (
+              <div className="mt-2 bg-white shadow-lg rounded-md">
+                <ul className="flex flex-col">
+                  {categories.map((category, index) => (
+                    <li key={index} className="hover:bg-gray-200 transition">
+                      <a
+                        href={`#${category.toLowerCase().replace(/\s+/g, "-")}`}
+                        className="block px-4 py-2 text-sm text-black"
+                        onClick={() => {
+                          toggleMenu();
+                          setIsDropdownOpen(false);
+                        }}
+                      >
+                        {category}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
