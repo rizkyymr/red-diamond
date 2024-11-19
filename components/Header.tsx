@@ -18,9 +18,6 @@ const Header = () => {
                             className="object-contain"
                         />
                     </Link>
-                    <div className="font-bold text-xl font-serif">
-                        Red Diamonds Lab
-                    </div>
                 </div>
                 <div className="flex-1">
                     <Nav />

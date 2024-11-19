@@ -50,10 +50,9 @@ const Nav = () => {
   return (
     <div className="flex items-center justify-between p-4">
       <div className="flex items-center gap-4">
-        <h1 className="text-xl font-bold text-black">Red Diamonds Lab</h1>
+        <h1 className="font-bold text-xl font-serif text-black">Red Diamonds Lab</h1>
       </div>
 
-      {/* Tombol Menu Mobile */}
       <button
         onClick={toggleMenu}
         className="text-2xl focus:outline-none md:hidden relative p-2 rounded transition-transform duration-300"
