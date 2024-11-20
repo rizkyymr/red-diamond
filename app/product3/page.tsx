@@ -66,7 +66,8 @@ const ProductsPage = () => {
       link: "/product11",
     },
     {
-      title: "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
+      title:
+        "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
       image: "/product12.png",
       link: "/product12",
     },
@@ -88,9 +89,11 @@ const ProductsPage = () => {
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 bg-white w-full justify-center items-center md:items-start">
-        <img
+        <Image
           src="/product3.jpg"
           alt="Deskripsi Gambar"
+          width={500}
+          height={500}
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">
@@ -186,24 +189,24 @@ const ProductsPage = () => {
         <div className="flex overflow-x-auto gap-4 mt-4 pb-4">
           {products.map((product, index) => (
             <Link
-            key={index}
-            href={product.link}
-            className="relative group cursor-pointer overflow-hidden rounded-2xl w-72 md:w-80 bg-white shadow-lg p-4 border-2 border-gray-300 flex-shrink-0"
-          >
-            <div className="relative h-[200px] md:h-[300px] w-full">
-              <Image
-                src={product.image}
-                alt={product.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
-              />
-            </div>
-            <div className="flex flex-col items-center mt-4">
-              <h3 className="text-black text-xl md:text-2xl font-bold tracking-wider">
-                {product.title}
-              </h3>
-            </div>
-          </Link>
+              key={index}
+              href={product.link}
+              className="relative group cursor-pointer overflow-hidden rounded-2xl w-72 md:w-80 bg-white shadow-lg p-4 border-2 border-gray-300 flex-shrink-0"
+            >
+              <div className="relative h-[200px] md:h-[300px] w-full">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl"
+                />
+              </div>
+              <div className="flex flex-col items-center mt-4">
+                <h3 className="text-black text-xl md:text-2xl font-bold tracking-wider">
+                  {product.title}
+                </h3>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

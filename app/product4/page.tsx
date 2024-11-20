@@ -66,7 +66,8 @@ const ProductsPage = () => {
       link: "/product11",
     },
     {
-      title: "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
+      title:
+        "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
       image: "/product12.png",
       link: "/product12",
     },
@@ -88,9 +89,11 @@ const ProductsPage = () => {
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 bg-white w-full justify-center items-center md:items-start">
-        <img
+        <Image
           src="/product4.png"
           alt="Deskripsi Gambar"
+          width={500}
+          height={500}
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 w-full md:w-2/3">

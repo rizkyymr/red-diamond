@@ -102,7 +102,6 @@ const ProductsPage = () => {
     },
   ];
 
-  // Kategori yang unik
   const categories = [...new Set(products.map((product) => product.category))];
 
   return (
@@ -130,7 +129,7 @@ const ProductsPage = () => {
               {category} —
             </h2>
 
-            {/* Produk dalam Kategori */}
+            
             <div className="overflow-x-auto flex gap-4 mt-4 pb-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
               {products
                 .filter((product) => product.category === category)

@@ -66,7 +66,8 @@ const ProductsPage = () => {
       link: "/product11",
     },
     {
-      title: "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
+      title:
+        "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
       image: "/product12.png",
       link: "/product12",
     },
@@ -88,9 +89,11 @@ const ProductsPage = () => {
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 md:p-6 bg-white w-full justify-center items-center md:items-start">
-        <img
+        <Image
           src="/product10.png"
           alt="Deskripsi Gambar"
+          width={500}
+          height={500}
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">
@@ -98,9 +101,7 @@ const ProductsPage = () => {
             <h2 className="text-2xl md:text-4xl font-bold text-black text-center md:text-left">
               Development board LoRa 920-923 MHz muRata 1SJ + STLink-v3
             </h2>
-            <p className="text-lg text-black">
-              PRE ORDER!
-            </p>
+            <p className="text-lg text-black">PRE ORDER!</p>
             <h3 className="font-bold mt-4 text-black">a. Specifications:</h3>
             <ul className="list-disc list-inside text-sm text-black">
               <li>Product Type: Module</li>

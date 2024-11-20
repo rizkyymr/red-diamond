@@ -17,7 +17,7 @@ export default function ImageSlider() {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <header className="h-auto w-full relative bg-dark-blue">

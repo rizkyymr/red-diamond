@@ -44,7 +44,8 @@ export default function Products() {
 
   useEffect(() => {
     AOS.init();
-
+  
+    const currentRef = ref.current;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         products.forEach((product, index) => {
@@ -56,14 +57,14 @@ export default function Products() {
         setVisibleProducts([]);
       }
     });
-
-    if (ref.current) {
-      observer.observe(ref.current);
+  
+    if (currentRef) {
+      observer.observe(currentRef);
     }
-
+  
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

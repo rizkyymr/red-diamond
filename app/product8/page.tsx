@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductsPage = () => {
-
   const handleBuy = () => {
     window.location.href =
       "https://www.tokopedia.com/rdlabs/stmicroelectronics-nucleo-144-u575zi-q-development-board-mcu?extParam=src%3Dshop%26whid%3D410203";
@@ -67,7 +66,8 @@ const ProductsPage = () => {
       link: "/product11",
     },
     {
-      title: "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
+      title:
+        "Turtle Board Heltec Automation STM32L43KC LoRaWAN Wireless Module",
       image: "/product12.png",
       link: "/product12",
     },
@@ -89,9 +89,11 @@ const ProductsPage = () => {
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 md:p-6 bg-white w-full justify-center items-center md:items-start">
-        <img
+        <Image
           src="/product8.png"
           alt="Deskripsi Gambar"
+          width={500}
+          height={500}
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">

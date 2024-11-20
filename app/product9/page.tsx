@@ -88,9 +88,11 @@ const ProductsPage = () => {
       }`}
     >
       <div className="flex flex-col md:flex-row border p-4 md:p-6 bg-white w-full justify-center items-center md:items-start">
-        <img
+      <Image
           src="/product9.jpg"
           alt="Deskripsi Gambar"
+          width={500}
+          height={500}
           className="w-full md:w-1/3 h-auto object-cover rounded-lg"
         />
         <div className="flex flex-col justify-between p-4 md:pl-6 w-full md:w-2/3">
