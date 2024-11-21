@@ -165,7 +165,7 @@ const Nav = () => {
               onClick={toggleDropdown}
               className="capitalize font-medium hover:text-blue-500 transition-all cursor-pointer flex items-center gap-2"
             >
-              Kategori ▼
+              CATEGORIES ▼
             </button>
             {isDropdownOpen && (
               <div className="mt-2 bg-white shadow-lg rounded-md">
